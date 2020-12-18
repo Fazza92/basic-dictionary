@@ -2,8 +2,9 @@ import json
 data = json.load(open("data.json"))
 
 
-def return_definition(input):
-  response = input
-  return f"You typed in {response}"
+def return_definition(word):
+  return data[word]
 
-print(return_definition("hey"))
+word = input("Enter word: ")
+
+print(return_definition(word))
