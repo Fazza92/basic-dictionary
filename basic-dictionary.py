@@ -8,8 +8,14 @@ def return_definition(word):
   word = word.lower()
   if word in data:
     return data[word]
-  elif len(get_close_matches(w, data.keys())) > 0:
-    return "Did you mean %s instead?" % get_close_matches(w, data.keys())[0]
+  elif len(get_close_matches(word, data.keys())) > 0:
+    yn = input("Did you mean %s instead? Enter Y or N: " % get_close_matches(word, data.keys())[0])
+    if yn == "Y":
+      return data[get_close_matches(word, data.keys())[0]]
+    elif yn == "N":
+      return "Word doesn't exist.  Please double check it."
+    else:
+      return "We didn't understand your entry."
   else:
     return "Word does not exist. Please check again."
 
