@@ -21,4 +21,10 @@ def return_definition(word):
 
 word = input("Enter word: ")
 
-print(return_definition(word))
+output = return_definition(word)
+
+if type(output) == list:
+  for item in output:
+    print(item)
+else:
+  print(output)
